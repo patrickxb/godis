@@ -56,7 +56,7 @@ func TestGeneric(t *testing.T) {
 		error_(t, "ttl", "> 0", res, err)
 	}
 
-        c.Set("foo", "foo")
+	c.Set("foo", "foo")
 	if err := c.Rename("foo", "bar"); err != nil {
 		error_(t, "rename", nil, nil, err)
 	}

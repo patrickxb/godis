@@ -7,7 +7,6 @@ import (
 	"log"
 	"reflect" //"strconv"
 
-
 	"testing"
 	"time"
 )
@@ -38,17 +37,17 @@ func compareReply(t *testing.T, name string, a, b *Reply) {
 	if a.Err != nil && b.Err == nil {
 		t.Fatalf("'%s': expected error `%v`", name, a.Err)
 	} else if b.Err != a.Err {
-                if b.Err != nil && a.Err != nil {
-                        if b.Err.Error() != a.Err.Error() {
-                                t.Fatalf("'%s': expected error %s got error %v", name, a.Err, b.Err)
-                        }
-                }
-                if b.Err == nil && a.Err != nil {
-                        t.Fatalf("'%s': expected error %s got nil", name, a.Err)
-                }
-                if a.Err == nil && b.Err != nil {
-                        t.Fatalf("'%s': expected nil error, got %s", name, b.Err)
-                }
+		if b.Err != nil && a.Err != nil {
+			if b.Err.Error() != a.Err.Error() {
+				t.Fatalf("'%s': expected error %s got error %v", name, a.Err, b.Err)
+			}
+		}
+		if b.Err == nil && a.Err != nil {
+			t.Fatalf("'%s': expected error %s got nil", name, a.Err)
+		}
+		if a.Err == nil && b.Err != nil {
+			t.Fatalf("'%s': expected nil error, got %s", name, b.Err)
+		}
 	} else if b.Elem != nil {
 		for i, c := range a.Elem {
 			if c != b.Elem[i] {

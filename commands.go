@@ -175,7 +175,8 @@ func (c *Client) Get(key string) (Elem, error) {
 	r := SendStr(c, "GET", key)
 
 	if r.Err == nil && r.Elem == nil {
-		r.Err = errors.New("key `" + key + "`does not exist")
+		// r.Err = errors.New("key `" + key + "`does not exist")
+		return nil, nil
 	}
 
 	return r.elemOrErr()
